@@ -25,15 +25,19 @@
 <link rel="dns-prefetch" href="//cdn.callrail.com" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Archivo:wght@400;600;700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Archivo:wght@400;600;700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Archivo:wght@400;600;700&display=swap" /></noscript>
 <style>
 body { margin:0; background:#0E0D11; -webkit-font-smoothing:antialiased; }
+@font-face { font-family:'Archivo-fallback'; src:local('Helvetica Neue'), local('Arial'); size-adjust:97%; ascent-override:92%; descent-override:24%; }
+@font-face { font-family:'Serif-fallback'; src:local('Georgia'), local('Times New Roman'); size-adjust:98%; }
 * { box-sizing:border-box; }
 a { color:#6E5730; text-decoration:none; }
 a:hover { color:#4C3B1E; text-decoration:underline; }
 .ondark a { color:#CCB184; }
 .ondark a:hover { color:#FCD798; }
-input, button, select, textarea { font-family:'Archivo', Helvetica, Arial, sans-serif; }
+input, button, select, textarea { font-family:'Archivo', 'Archivo-fallback', Helvetica, Arial, sans-serif; }
 input:focus, select:focus { outline:2px solid #CCB184; outline-offset:1px; }
 img { max-width:100%; }
 #videoModal { display:none; }
@@ -63,7 +67,7 @@ img { max-width:100%; }
 </style>
 </head>
 <body>
-<div style="font-family:'Archivo', Helvetica, Arial, sans-serif; color:#16151A; background:#FAF8F5; width:100%;">
+<div style="font-family:'Archivo', 'Archivo-fallback', Helvetica, Arial, sans-serif; color:#16151A; background:#FAF8F5; width:100%;">
 
   <div style="background:#16151A; color:#E9E2D6; padding:9px max(20px, calc((100% - 1180px) / 2)); display:flex; flex-wrap:wrap; gap:6px 22px; justify-content:center; align-items:center; font-size:13px; font-weight:500;">
     <span>Open 8am&ndash;6pm, Monday to Friday</span>
@@ -89,7 +93,7 @@ img { max-width:100%; }
       <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(204,177,132,0.16); border:1px solid rgba(204,177,132,0.5); color:#FCD798; padding:7px 13px; border-radius:3px; font-size:12.5px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:18px;">
         Free consultation &middot; $0 down financing available
       </div>
-      <h1 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(34px, 5.2vw, 54px); line-height:1.06; font-weight:700; margin:0 0 16px; letter-spacing:-0.02em; text-wrap:pretty; color:#FFFFFF;">
+      <h1 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(34px, 5.2vw, 54px); line-height:1.06; font-weight:700; margin:0 0 16px; letter-spacing:-0.02em; text-wrap:pretty; color:#FFFFFF;">
         Home Renovation in Phoenix, Designed and Built by One Team
       </h1>
       <p style="font-size:19px; line-height:1.5; color:#DED6C7; margin:0 0 26px; max-width:34em; text-wrap:pretty;">
@@ -124,7 +128,7 @@ img { max-width:100%; }
     <div style="min-width:0;">
       <div style="border:1px solid rgba(204,177,132,0.4); border-radius:5px; background:#FFFFFF; box-shadow:0 18px 44px rgba(4,4,6,0.45); overflow:hidden;">
         <div style="background:#16151A; padding:18px 22px;">
-          <div style="font-family:'Source Serif 4', Georgia, serif; font-size:23px; font-weight:700; line-height:1.15; color:#FFFFFF;">Get your free consultation</div>
+          <div style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:23px; font-weight:700; line-height:1.15; color:#FFFFFF;">Get your free consultation</div>
           <div style="font-size:14px; color:#CCB184; margin-top:5px; font-weight:600;">Takes 20 seconds. A designer calls you back the same business day.</div>
         </div>
         <div style="padding:22px;">
@@ -132,7 +136,7 @@ img { max-width:100%; }
           
             <div id="thanks" hidden="hidden" style="padding:26px 4px; text-align:center;">
             <div aria-hidden="true" style="width:48px; height:48px; border-radius:50%; background:#CCB184; color:#16151A; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:700; margin:0 auto 14px;">&#10003;</div>
-            <div style="font-family:'Source Serif 4', Georgia, serif; font-size:22px; font-weight:700; margin-bottom:8px;">Request received</div>
+            <div style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:22px; font-weight:700; margin-bottom:8px;">Request received</div>
             <p style="font-size:15px; color:#4A4750; line-height:1.5; margin:0 0 18px;">A Bayside designer will call you the same business day. Want to talk now?</p>
             <a href="tel:6024643696" style="display:inline-block; background:#16151A; color:#FFFFFF; padding:14px 24px; border-radius:3px; font-weight:700; font-size:16.5px; min-height:48px;">Call (602) 464-3696</a>
           </div>
@@ -201,7 +205,7 @@ img { max-width:100%; }
 
   <section style="padding:44px max(20px, calc((100% - 1180px) / 2)) 40px;">
     <div style="display:flex; flex-wrap:wrap; gap:10px 24px; align-items:baseline; justify-content:space-between; margin-bottom:22px;">
-      <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0; letter-spacing:-0.015em;">Recent Valley renovations</h2>
+      <h2 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0; letter-spacing:-0.015em;">Recent Valley renovations</h2>
       <div style="font-size:14.5px; color:#57535E;">Whole-home renovations across the Valley</div>
     </div>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:14px;">
@@ -221,26 +225,26 @@ img { max-width:100%; }
   </section>
 
   <section style="background:#F2EEE7; border-top:1px solid #E2DBCF; border-bottom:1px solid #E2DBCF; padding:48px max(20px, calc((100% - 1180px) / 2));">
-    <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0 0 8px; letter-spacing:-0.015em;">How a Bayside renovation gets built</h2>
+    <h2 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0 0 8px; letter-spacing:-0.015em;">How a Bayside renovation gets built</h2>
     <p style="font-size:17px; color:#4A4750; margin:0 0 32px; max-width:46em;">Design and construction under one roof means one point of contact for every room in the project, one accountable team, and a scope and budget set before demolition begins.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:26px;">
       <div>
-        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#8A6F3E; font-weight:500; margin-bottom:10px;">01 / DISCOVERY</div>
+        <div style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#8A6F3E; font-weight:500; margin-bottom:10px;">01 / DISCOVERY</div>
         <h3 style="font-size:19px; font-weight:700; margin:0 0 8px;">Consultation and budget</h3>
         <p style="font-size:15.5px; line-height:1.55; color:#4A4750; margin:0;">We listen first: which rooms matter most, what bothers you about how the house lives now, and the number you are working with. No charge and no obligation.</p>
       </div>
       <div>
-        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#8A6F3E; font-weight:500; margin-bottom:10px;">02 / DESIGN</div>
+        <div style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#8A6F3E; font-weight:500; margin-bottom:10px;">02 / DESIGN</div>
         <h3 style="font-size:19px; font-weight:700; margin:0 0 8px;">3D plan and materials</h3>
         <p style="font-size:15.5px; line-height:1.55; color:#4A4750; margin:0;">Personalized 3D concepts plus cabinetry, tile, quartz and stone chosen to stand up to Valley hard water. Scope and price lock here, before demo.</p>
       </div>
       <div>
-        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#8A6F3E; font-weight:500; margin-bottom:10px;">03 / PERMITS</div>
+        <div style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#8A6F3E; font-weight:500; margin-bottom:10px;">03 / PERMITS</div>
         <h3 style="font-size:19px; font-weight:700; margin:0 0 8px;">City of Phoenix filings</h3>
         <p style="font-size:15.5px; line-height:1.55; color:#4A4750; margin:0;">We pull and manage every permit under ROC #353387 and handle plan review, HOA approvals and inspections so the process does not stall.</p>
       </div>
       <div>
-        <div style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#8A6F3E; font-weight:500; margin-bottom:10px;">04 / BUILD</div>
+        <div style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#8A6F3E; font-weight:500; margin-bottom:10px;">04 / BUILD</div>
         <h3 style="font-size:19px; font-weight:700; margin:0 0 8px;">One accountable team</h3>
         <p style="font-size:15.5px; line-height:1.55; color:#4A4750; margin:0;">Your designer, field manager and crew stay with the job to final walkthrough, with clear communication at every stage.</p>
       </div>
@@ -249,7 +253,7 @@ img { max-width:100%; }
 
   <section style="padding:48px max(20px, calc((100% - 1180px) / 2)) 44px;">
     <div style="display:flex; flex-wrap:wrap; gap:10px 24px; align-items:baseline; justify-content:space-between; margin-bottom:8px;">
-      <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0; letter-spacing:-0.015em;">Hear it from Phoenix homeowners</h2>
+      <h2 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0; letter-spacing:-0.015em;">Hear it from Phoenix homeowners</h2>
       <div style="font-size:14.5px; font-weight:600; color:#8A6F3E;">Filmed in their finished homes</div>
     </div>
     <p style="font-size:17px; color:#4A4750; margin:0 0 28px; max-width:46em;">Three Valley families on what a full renovation actually felt like: the budget conversations, the surprises, and what they would tell a neighbor.</p>
@@ -315,23 +319,23 @@ img { max-width:100%; }
 
   <section style="background:#F2EEE7; border-top:1px solid #E2DBCF; padding:48px max(20px, calc((100% - 1180px) / 2));">
     <div style="display:flex; flex-wrap:wrap; gap:10px 24px; align-items:baseline; justify-content:space-between; margin-bottom:24px;">
-      <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(24px,3vw,32px); font-weight:700; margin:0; letter-spacing:-0.015em;">What they wrote afterward</h2>
+      <h2 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(24px,3vw,32px); font-weight:700; margin:0; letter-spacing:-0.015em;">What they wrote afterward</h2>
       <div style="font-size:14.5px; color:#4A4750;">5.0 average across 56 Google reviews &middot; <a href="https://maps.app.goo.gl/XvuFMAR5Toz8Z2a27" target="_blank" rel="noopener">read them all</a></div>
     </div>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;">
       <figure style="margin:0; border:1px solid #E2DBCF; border-radius:4px; padding:24px; background:#FFFFFF;">
         <div role="img" aria-label="Rated 5 out of 5" style="color:#CCB184; font-size:15px; letter-spacing:1px; margin-bottom:12px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote style="margin:0 0 16px; font-family:'Source Serif 4', Georgia, serif; font-size:18px; line-height:1.5; color:#211F26;">&ldquo;I was nervous because of friends that have had issues with contractors, but we had absolutely NO problems. Excellent craftsmanship and within our time frame.&rdquo;</blockquote>
+        <blockquote style="margin:0 0 16px; font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:18px; line-height:1.5; color:#211F26;">&ldquo;I was nervous because of friends that have had issues with contractors, but we had absolutely NO problems. Excellent craftsmanship and within our time frame.&rdquo;</blockquote>
         <figcaption style="font-size:14px; color:#57535E;"><strong style="color:#16151A; font-weight:700;">Connie Howe</strong> &middot; whole-house remodel</figcaption>
       </figure>
       <figure style="margin:0; border:1px solid #E2DBCF; border-radius:4px; padding:24px; background:#FFFFFF;">
         <div role="img" aria-label="Rated 5 out of 5" style="color:#CCB184; font-size:15px; letter-spacing:1px; margin-bottom:12px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote style="margin:0 0 16px; font-family:'Source Serif 4', Georgia, serif; font-size:18px; line-height:1.5; color:#211F26;">&ldquo;He cared enough to order and oversee everything down to the tiniest detail. My 30 year old kitchen and bath is updated and beautifully done.&rdquo;</blockquote>
+        <blockquote style="margin:0 0 16px; font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:18px; line-height:1.5; color:#211F26;">&ldquo;He cared enough to order and oversee everything down to the tiniest detail. My 30 year old kitchen and bath is updated and beautifully done.&rdquo;</blockquote>
         <figcaption style="font-size:14px; color:#57535E;"><strong style="color:#16151A; font-weight:700;">Rhonda Oesterle</strong> &middot; kitchen and bath remodel</figcaption>
       </figure>
       <figure style="margin:0; border:1px solid #E2DBCF; border-radius:4px; padding:24px; background:#FFFFFF;">
         <div role="img" aria-label="Rated 5 out of 5" style="color:#CCB184; font-size:15px; letter-spacing:1px; margin-bottom:12px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <blockquote style="margin:0 0 16px; font-family:'Source Serif 4', Georgia, serif; font-size:18px; line-height:1.5; color:#211F26;">&ldquo;As this was our first major renovation, having someone patient and proactive made the process much less overwhelming. Responsive, transparent, and detailed.&rdquo;</blockquote>
+        <blockquote style="margin:0 0 16px; font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:18px; line-height:1.5; color:#211F26;">&ldquo;As this was our first major renovation, having someone patient and proactive made the process much less overwhelming. Responsive, transparent, and detailed.&rdquo;</blockquote>
         <figcaption style="font-size:14px; color:#57535E;"><strong style="color:#16151A; font-weight:700;">Angel Flores</strong> &middot; kitchen and custom entertainment wall</figcaption>
       </figure>
     </div>
@@ -341,35 +345,35 @@ img { max-width:100%; }
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:36px; align-items:center;">
       <img src="../assets/founder.webp" alt="Ben Shoval, owner of Bayside Home Builders, with his family in a Phoenix kitchen" width="600" height="800" loading="lazy" decoding="async" style="width:100%; height:auto; border-radius:4px; display:block;" />
       <div>
-        <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(26px,3.4vw,34px); font-weight:700; margin:0 0 14px; letter-spacing:-0.02em;">Family-owned, and you will meet the owner</h2>
+        <h2 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(26px,3.4vw,34px); font-weight:700; margin:0 0 14px; letter-spacing:-0.02em;">Family-owned, and you will meet the owner</h2>
         <p style="font-size:16.5px; line-height:1.6; color:#DED6C7; margin:0 0 16px;">Bayside is led by founder Ben Shoval, who has been building since he was a kid on jobsites with his father. Across more than 20 years and 500+ remodeled homes, he saw too many contractors cut corners and disappear when problems came up, so he built Bayside to be the opposite.</p>
         <div style="display:grid; gap:11px; margin-top:20px;">
-          <div style="display:flex; gap:12px; align-items:baseline;"><span style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#CCB184; min-width:48px;">ROC</span><span style="font-size:15.5px; line-height:1.45;">ROC #353387, licensed, bonded and insured in Arizona</span></div>
-          <div style="display:flex; gap:12px; align-items:baseline;"><span style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#CCB184; min-width:48px;">BBB</span><span style="font-size:15.5px; line-height:1.45;">BBB A rated, NARI, NKBA and Houzz member</span></div>
-          <div style="display:flex; gap:12px; align-items:baseline;"><span style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#CCB184; min-width:48px;">LOCAL</span><span style="font-size:15.5px; line-height:1.45;">Office at 1855 E Northern Ave, Unit 3, Phoenix</span></div>
-          <div style="display:flex; gap:12px; align-items:baseline;"><span style="font-family:'IBM Plex Mono', monospace; font-size:12px; color:#CCB184; min-width:48px;">FUND</span><span style="font-size:15.5px; line-height:1.45;">Licensed work is protected by the AZ Residential Contractors&rsquo; Recovery Fund</span></div>
+          <div style="display:flex; gap:12px; align-items:baseline;"><span style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#CCB184; min-width:48px;">ROC</span><span style="font-size:15.5px; line-height:1.45;">ROC #353387, licensed, bonded and insured in Arizona</span></div>
+          <div style="display:flex; gap:12px; align-items:baseline;"><span style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#CCB184; min-width:48px;">BBB</span><span style="font-size:15.5px; line-height:1.45;">BBB A rated, NARI, NKBA and Houzz member</span></div>
+          <div style="display:flex; gap:12px; align-items:baseline;"><span style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#CCB184; min-width:48px;">LOCAL</span><span style="font-size:15.5px; line-height:1.45;">Office at 1855 E Northern Ave, Unit 3, Phoenix</span></div>
+          <div style="display:flex; gap:12px; align-items:baseline;"><span style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:12px; color:#CCB184; min-width:48px;">FUND</span><span style="font-size:15.5px; line-height:1.45;">Licensed work is protected by the AZ Residential Contractors&rsquo; Recovery Fund</span></div>
         </div>
       </div>
     </div>
   </section>
 
   <section style="padding:48px max(20px, calc((100% - 1180px) / 2)) 44px;">
-    <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">What shapes your estimate</h2>
+    <h2 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">What shapes your estimate</h2>
     <p style="font-size:17px; color:#4A4750; margin:0 0 26px; max-width:46em;">Every renovation is priced from your actual rooms and selections, not a square-foot average. These three things move the number most, and we walk through all of them before you sign anything.</p>
     <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;">
       <div style="border:1px solid #E2DBCF; border-top:3px solid #CCB184; border-radius:3px; padding:24px; background:#FFFFFF;">
         <div style="font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#8A6F3E; margin-bottom:10px;">SCOPE</div>
-        <h3 style="font-family:'Source Serif 4', Georgia, serif; font-size:21px; font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">Which rooms, and how many</h3>
+        <h3 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:21px; font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">Which rooms, and how many</h3>
         <p style="font-size:15px; line-height:1.55; color:#4A4750; margin:0;">A kitchen and two baths in one project costs less per room than three separate jobs, because demolition, permits, trades and dust containment are shared. Phasing is an option if it fits your budget better.</p>
       </div>
       <div style="border:1px solid #E2DBCF; border-top:3px solid #CCB184; border-radius:3px; padding:24px; background:#FFFFFF;">
         <div style="font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#8A6F3E; margin-bottom:10px;">SELECTIONS</div>
-        <h3 style="font-family:'Source Serif 4', Georgia, serif; font-size:21px; font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">Finish and material level</h3>
+        <h3 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:21px; font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">Finish and material level</h3>
         <p style="font-size:15px; line-height:1.55; color:#4A4750; margin:0;">Cabinetry, tile, quartz and fixtures span a wide range. We show you the range at design stage, so you decide where to spend and where to save before the price locks.</p>
       </div>
       <div style="border:1px solid #E2DBCF; border-top:3px solid #CCB184; border-radius:3px; padding:24px; background:#FFFFFF;">
         <div style="font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:#8A6F3E; margin-bottom:10px;">STRUCTURE</div>
-        <h3 style="font-family:'Source Serif 4', Georgia, serif; font-size:21px; font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">Whether walls or plumbing move</h3>
+        <h3 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:21px; font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">Whether walls or plumbing move</h3>
         <p style="font-size:15px; line-height:1.55; color:#4A4750; margin:0;">Cosmetic updates stay predictable. Opening a wall, relocating plumbing or changing a layout brings in structural review and permits, which we handle but which do change the number.</p>
       </div>
     </div>
@@ -380,7 +384,7 @@ img { max-width:100%; }
     <section style="padding:8px max(20px, calc((100% - 1180px) / 2)) 48px;">
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:14px 48px; align-items:start;">
         <div>
-          <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">Straight answers</h2>
+          <h2 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(26px,3.4vw,36px); font-weight:700; margin:0 0 10px; letter-spacing:-0.015em;">Straight answers</h2>
           <p style="font-size:16.5px; line-height:1.6; color:#4A4750; margin:0; max-width:34em;">The six questions every Phoenix homeowner asks on the first call. If yours is not here, ask us on the phone and we will answer it the same way.</p>
         </div>
         <div>
@@ -444,7 +448,7 @@ img { max-width:100%; }
   
 
   <section style="padding:52px max(20px, calc((100% - 1180px) / 2)) 60px; text-align:center; background:#F2EEE7; border-top:1px solid #E2DBCF;">
-    <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:clamp(28px,4vw,42px); font-weight:700; margin:0 0 12px; letter-spacing:-0.02em; text-wrap:pretty;">Book your free consultation</h2>
+    <h2 style="font-family:'Source Serif 4', 'Serif-fallback', Georgia, serif; font-size:clamp(28px,4vw,42px); font-weight:700; margin:0 0 12px; letter-spacing:-0.02em; text-wrap:pretty;">Book your free consultation</h2>
     <p style="font-size:17.5px; color:#4A4750; margin:0 auto 28px; max-width:34em; line-height:1.5;">Talk with a Bayside designer about your rooms, your budget and your timeline. No cost, no obligation, no pressure.</p>
     <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
       <a href="tel:6024643696" style="display:inline-flex; align-items:center; justify-content:center; background:#16151A; color:#FFFFFF; padding:17px 30px; border-radius:3px; font-weight:700; font-size:18px; min-height:56px;" class="x13">Call (602) 464-3696</a>
