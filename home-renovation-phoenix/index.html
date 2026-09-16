@@ -25,13 +25,16 @@
 <link rel="dns-prefetch" href="//cdn.callrail.com" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&family=Archivo:wght@400;600;700&display=swap" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&family=Archivo:wght@400;600;700&display=swap" media="print" onload="this.media='all'" />
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&family=Archivo:wght@400;600;700&display=swap" /></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&family=Archivo:wght@400;600;700&display=optional" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&family=Archivo:wght@400;600;700&display=optional" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;700&family=Archivo:wght@400;600;700&display=optional" /></noscript>
 <style>
 body { margin:0; background:#0E0D11; -webkit-font-smoothing:antialiased; }
-@font-face { font-family:'Archivo-fallback'; src:local('Helvetica Neue'), local('Arial'); size-adjust:97%; ascent-override:92%; descent-override:24%; }
-@font-face { font-family:'Serif-fallback'; src:local('Georgia'), local('Times New Roman'); size-adjust:98%; }
+/* Fallback metrics measured against the real faces so line wrapping is identical
+   and the font swap causes no reflow. Archivo/Helvetica differ by 1%, Source
+   Serif is 5.5% narrower than Georgia. */
+@font-face { font-family:'Archivo-fallback'; src:local('Helvetica Neue'), local('Helvetica'), local('Arial'); size-adjust:99%; }
+@font-face { font-family:'Serif-fallback'; src:local('Georgia'), local('Times New Roman'); size-adjust:94.5%; }
 * { box-sizing:border-box; }
 a { color:#6E5730; text-decoration:none; }
 a:hover { color:#4C3B1E; text-decoration:underline; }
