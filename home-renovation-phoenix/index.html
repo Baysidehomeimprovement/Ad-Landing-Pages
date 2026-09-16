@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,10 +8,25 @@
 <meta name="description" content="Home renovation in Phoenix from a licensed design-build team. Kitchens, baths and multi-room remodels with a fixed itemized estimate. AZ ROC #353387. Call (602) 345-1464." />
 <meta name="robots" content="noindex, follow" />
 <link rel="preload" as="image" href="../assets/hero-exterior.webp" fetchpriority="high" />
+
+<!-- CallRail dynamic number insertion (company 241436708) -->
+<script type="text/javascript" async src="//cdn.callrail.com/companies/241436708/7f9cc8091a63936b52e0/12/swap.js"></script>
+
+<!-- Google Ads / GA4: uncomment and replace AW-XXXXXXXXX with your conversion ID -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-XXXXXXXXX');
+</script>
+-->
+<link rel="preconnect" href="https://cdn.callrail.com" />
+<link rel="dns-prefetch" href="//cdn.callrail.com" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
-<script type="text/javascript" src="//cdn.callrail.com/companies/241436708/7f9cc8091a63936b52e0/12/swap.js"></script> 
 <style>
 body { margin:0; background:#0E0D11; -webkit-font-smoothing:antialiased; }
 * { box-sizing:border-box; }
@@ -125,8 +141,13 @@ img { max-width:100%; }
               <input type="hidden" name="_subject" value="New home renovation lead (Google Ads LP)" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://offers.baysidehomebuilders.com/thank-you/" />
+              <input type="hidden" name="_next" value="https://offers.azbaysidehomeimprovement.com/thank-you/" />
               <input type="hidden" name="Source" value="Google Ads - home renovation phoenix" />
+              <input type="hidden" name="gclid" value="" />
+              <input type="hidden" name="campaign" value="" />
+              <input type="hidden" name="keyword" value="" />
+              <input type="hidden" name="referrer" value="" />
+              <input type="hidden" name="landing_page" value="" />
               <label style="display:grid; gap:6px;">
                 <span style="font-size:12.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#57535E;">Full name</span>
                 <input type="text" name="name" required="required" autocomplete="name" placeholder="Your name" style="padding:13px 14px; border:1px solid #CBC5BA; border-radius:3px; font-size:16.5px; min-height:48px; background:#FFFFFF;" />
@@ -140,8 +161,15 @@ img { max-width:100%; }
                 <input type="email" name="email" required="required" autocomplete="email" inputmode="email" placeholder="you@example.com" style="padding:13px 14px; border:1px solid #CBC5BA; border-radius:3px; font-size:16.5px; min-height:48px; background:#FFFFFF;" />
               </label>
               <label style="display:grid; gap:6px;">
-                <span style="font-size:12.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#57535E;">Home ZIP code</span>
-                <input type="text" name="zip" required="required" pattern="[0-9]{5}" autocomplete="postal-code" inputmode="numeric" maxlength="5" placeholder="85020" style="padding:13px 14px; border:1px solid #CBC5BA; border-radius:3px; font-size:16.5px; min-height:48px; background:#FFFFFF;" />
+                <span style="font-size:12.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#57535E;">Project scope</span>
+                <select name="scope" required="required" style="padding:13px 14px; border:1px solid #CBC5BA; border-radius:3px; font-size:16.5px; min-height:48px; background:#FFFFFF; color:#16151A;">
+                  <option value="" disabled="disabled" selected="selected">Select your project</option>
+                  <option value="One room">One room</option>
+                  <option value="Kitchen and bath(s)">Kitchen and bath(s)</option>
+                  <option value="Multiple rooms">Multiple rooms</option>
+                  <option value="Whole home">Whole home</option>
+                  <option value="Not sure yet">Not sure yet</option>
+                </select>
               </label>
               <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" />
               
@@ -461,6 +489,34 @@ img { max-width:100%; }
 (function () {
   var loadedAt = Date.now();
 
+  // ---- Click attribution: capture once, persist for the whole session ----
+  // A visitor who lands with ?gclid=..., browses, then converts on a later
+  // pageview would otherwise submit an empty gclid. sessionStorage keeps it.
+  var ATTR_KEY = 'bayside_attr';
+  function captureAttribution() {
+    var q = new URLSearchParams(window.location.search);
+    var stored = {};
+    try { stored = JSON.parse(sessionStorage.getItem(ATTR_KEY) || '{}'); } catch (e) {}
+    var fresh = {
+      gclid: q.get('gclid') || q.get('wbraid') || q.get('gbraid') || '',
+      campaign: q.get('utm_campaign') || q.get('campaignid') || '',
+      keyword: q.get('utm_term') || q.get('keyword') || '',
+      referrer: document.referrer || '',
+      landing_page: window.location.href
+    };
+    // first non-empty value wins, so a mid-session pageview cannot blank the gclid
+    var merged = {};
+    Object.keys(fresh).forEach(function (k) {
+      merged[k] = stored[k] || fresh[k] || '';
+    });
+    try { sessionStorage.setItem(ATTR_KEY, JSON.stringify(merged)); } catch (e) {}
+    Object.keys(merged).forEach(function (k) {
+      var field = document.querySelector('input[name="' + k + '"]');
+      if (field) field.value = merged[k];
+    });
+  }
+  captureAttribution();
+
   // FAQ accordion
   var faqBtns = [].slice.call(document.querySelectorAll('[data-faq]'));
   faqBtns.forEach(function (btn) {
@@ -554,12 +610,15 @@ img { max-width:100%; }
     });
   });
 
-  // Call-click conversion signal
-  [].slice.call(document.querySelectorAll('a[href^="tel:"]')).forEach(function (a) {
-    a.addEventListener('click', function () {
-      if (window.gtag) gtag('event', 'conversion', { event_category: 'lead', event_label: 'call click' });
-      if (window.dataLayer) window.dataLayer.push({ event: 'call_click' });
-    });
+  // Call-click conversion signal. Delegated at document level so it still fires
+  // on the links CallRail's swap script rewrites after load, and reads the href
+  // at click time so the reported number is the swapped pool number.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+    if (!a) return;
+    var num = a.getAttribute('href').replace('tel:', '');
+    if (window.gtag) gtag('event', 'conversion', { event_category: 'lead', event_label: 'call click', phone_number: num });
+    if (window.dataLayer) window.dataLayer.push({ event: 'call_click', phone_number: num });
   });
 })();
 </script>
