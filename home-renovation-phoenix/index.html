@@ -157,11 +157,11 @@ img { max-width:100%; }
             <p style="font-size:15px; color:#4A4750; line-height:1.5; margin:0 0 18px;">A Bayside designer will call you the same business day. Want to talk now?</p>
             <a href="tel:6024643696" style="display:inline-block; background:#16151A; color:#FFFFFF; padding:14px 24px; border-radius:3px; font-weight:700; font-size:16.5px; min-height:48px;">Call (602) 464-3696</a>
           </div>
-          <form action="https://formsubmit.co/sales@baysidehi.net" method="POST" id="leadForm" style="display:grid; gap:14px;">
-              <input type="hidden" name="_subject" value="New home renovation lead (Google Ads LP)" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://offers.baysidehomebuilders.com/thank-you/" />
+          <form action="https://api.web3forms.com/submit" method="POST" id="leadForm" style="display:grid; gap:14px;">
+              <input type="hidden" name="access_key" value="232a8df4-cb93-470c-b504-48db5fd182e6" />
+              <input type="hidden" name="subject" value="New home renovation lead (Google Ads LP)" />
+              <input type="hidden" name="from_name" value="Bayside Offers LP" />
+              <input type="hidden" name="redirect" value="https://offers.baysidehomebuilders.com/thank-you/?lead=1" />
               <input type="hidden" name="Source" value="Google Ads - home renovation arizona" />
               <input type="hidden" name="gclid" value="" />
               <input type="hidden" name="campaign" value="" />
@@ -191,7 +191,7 @@ img { max-width:100%; }
                   <option value="Not sure yet">Not sure yet</option>
                 </select>
               </label>
-              <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" />
+              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0;" />
               
               <button type="submit" id="leadSubmit" style="width:100%; background:#CCB184; color:#16151A; border:none; padding:16px; border-radius:3px; font-size:17.5px; font-weight:700; cursor:pointer; min-height:54px;" class="x2">
                 Get My Free Consultation
@@ -596,13 +596,13 @@ img { max-width:100%; }
     });
   });
 
-  // Lead form -> FormSubmit AJAX, with a full-page POST fallback if JS fetch fails
+  // Lead form -> Web3Forms AJAX, with a full-page POST fallback if JS fetch fails
   var form = document.getElementById('leadForm');
   var btn = document.getElementById('leadSubmit');
   var err = document.getElementById('sendError');
   var ok = document.getElementById('thanks');
   form.addEventListener('submit', function (e) {
-    if (form._honey && form._honey.value) { e.preventDefault(); return; }
+    if (form.botcheck && form.botcheck.checked) { e.preventDefault(); return; }
     if (Date.now() - loadedAt < 2500) { e.preventDefault(); return; }
     e.preventDefault();
     if (btn.disabled) return;
@@ -610,8 +610,8 @@ img { max-width:100%; }
     btn.textContent = 'Sending\u2026';
     if (err) err.hidden = true;
     var body = {};
-    new FormData(form).forEach(function (v, k) { if (k !== '_honey' && k !== '_next') body[k] = v; });
-    fetch('https://formsubmit.co/ajax/sales@baysidehi.net', {
+    new FormData(form).forEach(function (v, k) { if (k !== 'botcheck' && k !== 'redirect') body[k] = v; });
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify(body)
@@ -619,8 +619,8 @@ img { max-width:100%; }
       if (!r.ok) throw new Error('http ' + r.status);
       return r.json();
     }).then(function (data) {
-      // FormSubmit returns HTTP 200 with success:"false" for unactivated or rejected forms
-      if (!data || String(data.success) !== 'true') throw new Error((data && data.message) || 'rejected');
+      // Web3Forms returns success:false with a message when the key or payload is rejected
+      if (!data || data.success !== true) throw new Error((data && data.message) || 'rejected');
       if (window.dataLayer) window.dataLayer.push({ event: 'lead_form_submit' });
       // Navigate to the thank-you page so the conversion is a real pageview.
       // Show the inline panel first, so the visitor is never looking at a
@@ -635,8 +635,8 @@ img { max-width:100%; }
       window.location.href = '../thank-you/?lead=1' + attr;
     }).catch(function (e) {
       // AJAX blocked (ad blocker, CORS, activation, outage): fall back to a normal
-      // POST. FormSubmit then redirects to _next, so the lead is never lost.
-      if (window.console) console.warn('FormSubmit AJAX failed, falling back to POST:', e && e.message);
+      // POST. Web3Forms then redirects to the thank-you page, so the lead is never lost.
+      if (window.console) console.warn('Web3Forms AJAX failed, falling back to POST:', e && e.message);
       if (window.dataLayer) window.dataLayer.push({ event: 'lead_form_submit', method: 'post_fallback' });
       btn.textContent = 'Sending\u2026';
       HTMLFormElement.prototype.submit.call(form);
